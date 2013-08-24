@@ -8,16 +8,18 @@ public class MyGestureListener extends ActorGestureListener {
 	
 	BitmapFont font;
 	MyActor actor;
+	LabelActor label;
 	
-	public MyGestureListener(MyActor actor){
+	public MyGestureListener(MyActor actor, LabelActor label){
 		this.actor = actor;
+		this.label = label;
 	}
 	
 	public void fling (InputEvent event, float velocityX, float velocityY, int button) {
 		Orientation orientation = getRightMove(velocityX, velocityY);
-		actor.lastKey = actor.getKey(orientation);
-		actor.setText(actor.getKey(orientation));
-		System.out.println("Letter: " + actor.getKey(orientation));
+		//actor.lastKey = actor.getKey(orientation);
+		label.appendText(actor.getKey(orientation));
+		//System.out.println("Letter: " + actor.getKey(orientation));
 	}
 	
 	private Orientation getRightMove(float velocityX, float velocityY){

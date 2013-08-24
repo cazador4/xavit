@@ -11,6 +11,8 @@ public class LabelActor extends Actor{
 
 	public LabelActor(){
 		font = new BitmapFont();
+		labelText="Su Texto: ";
+		font.scale(2);
 	}
 
 	public void appendText(String text){
@@ -18,7 +20,7 @@ public class LabelActor extends Actor{
 	}
 
 	public void draw (SpriteBatch batch, float parentAlpha) {
-		super.draw(batch, parentAlpha);
+		//super.draw(batch, parentAlpha);
 		font.draw(batch, labelText, getX()+20, getY()+50);
 	}
 

@@ -9,12 +9,11 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.me.mygdxgame.MyGestureListener.Orientation;
 
 public class MyActor extends Actor {
-    TextureRegion region;
+    static TextureRegion region;
     String name;
     String north,south,east,west;
     BitmapFont font;
     String lastKey="";
-    MyGdxGame game;
     
     public String getName(){
     	return name;
@@ -34,26 +33,22 @@ public class MyActor extends Actor {
 		return "FAIL";
     }
     
-    public void setText(String str){
-    	game.setText(str);
-    }
-    
-    public MyActor (String name, String n, String s, String e, String w, MyGdxGame game) {
+    public MyActor (String name, String n, String s, String e, String w) {
     		font = new BitmapFont();
     		this.name = name;
     		north = n;
     		south = s;
     		east = e;
     		west = w;
-            region = new TextureRegion(new Texture(Gdx.files.internal("actor.png")));
+            if(region==null)
+            	region = new TextureRegion(new Texture(Gdx.files.internal("actor.png")));
             setWidth(300);
             setHeight(300);
             setPosition(0, 0);
-            this.game = game;
     }
 
     public void draw (SpriteBatch batch, float parentAlpha) {
-            super.draw(batch, parentAlpha);
+            //super.draw(batch, parentAlpha);
             batch.draw(region, getX(), getY(), getOriginX(), getOriginY(),
                     getWidth(), getHeight(), getScaleX(), getScaleY(), getRotation());
             font.setScale(3);
