@@ -18,7 +18,17 @@ public class MyGestureListener extends ActorGestureListener {
 	public void fling (InputEvent event, float velocityX, float velocityY, int button) {
 		Orientation orientation = getRightMove(velocityX, velocityY);
 		//actor.lastKey = actor.getKey(orientation);
-		label.appendText(actor.getKey(orientation));
+		String key = actor.getKey(orientation);
+		if(key.equals("ENTER"))
+			label.appendText("\n");
+		else{
+			if(key.equals("<---"))
+				label.delete(1);
+			else
+				label.appendText(key);
+		}
+			
+		
 		//System.out.println("Letter: " + actor.getKey(orientation));
 	}
 	

@@ -9,6 +9,6 @@ public class Main {
 	      cfg.title = "Drop";
 	      cfg.width = 480;
 	      cfg.height = 800;
-	      new LwjglApplication(new MyGdxGame(), cfg);
+	      new LwjglApplication(new QwertyApp(), cfg);
 	}
 }

@@ -21,7 +21,11 @@ public class LabelActor extends Actor{
 
 	public void draw (SpriteBatch batch, float parentAlpha) {
 		//super.draw(batch, parentAlpha);
-		font.draw(batch, labelText, getX()+20, getY()+50);
+		font.drawMultiLine(batch, labelText, getX()+20, getY()+200);
+	}
+
+	public void delete(int i) {
+		labelText = labelText.substring(0, labelText.length()-i);
 	}
 
 }

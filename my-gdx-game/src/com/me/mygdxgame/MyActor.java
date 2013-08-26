@@ -42,8 +42,8 @@ public class MyActor extends Actor {
     		west = w;
             if(region==null)
             	region = new TextureRegion(new Texture(Gdx.files.internal("actor.png")));
-            setWidth(300);
-            setHeight(300);
+            setWidth(200);
+            setHeight(200);
             setPosition(0, 0);
     }
 
@@ -52,13 +52,13 @@ public class MyActor extends Actor {
             batch.draw(region, getX(), getY(), getOriginX(), getOriginY(),
                     getWidth(), getHeight(), getScaleX(), getScaleY(), getRotation());
             font.setScale(3);
-            font.draw(batch, north, getX()+135, getY()+290);
+            font.draw(batch, north, getX()+80, getY()+190);
             if(!south.equals(" "))
-            	font.draw(batch, south, getX()+135, getY()+50);
+            	font.draw(batch, south, getX()+80, getY()+40);
             else
-            	font.draw(batch, "espacio", getX()+75, getY()+50);
-            font.draw(batch, east, getX()+250, getY()+170);
-            font.draw(batch, west, getX()+20, getY()+170);
+            	font.draw(batch, "espacio", getX()+10, getY()+40);
+            font.draw(batch, east, getX()+150, getY()+110);
+            font.draw(batch, west, getX()+10, getY()+110);
             //font.draw(batch, lastKey, getX()+20, getY()+50);    
     }
 }
